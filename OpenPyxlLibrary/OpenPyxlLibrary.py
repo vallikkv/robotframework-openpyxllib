@@ -53,7 +53,8 @@ class  OpenPyxlLibrary:
         """
         **** Marked for depreciation ****
         """
-        self.sheet = self.wb.get_sheet_by_name(sheetname)
+        #self.sheet = self.wb.get_sheet_by_name(sheetname)
+        self.sheet = self.wb[sheetname]
 
     
     def get_column_count(self, sheetname):
@@ -62,7 +63,8 @@ class  OpenPyxlLibrary:
         Example:
         | Get Column count     |  Sheet1 |
         """
-        self.sheet = self.wb.get_sheet_by_name(sheetname)
+        #self.sheet = self.wb.get_sheet_by_name(sheetname)
+        self.sheet = self.wb[sheetname]
         return self.sheet.max_column
 
 
@@ -72,7 +74,8 @@ class  OpenPyxlLibrary:
         Example:
         | Get Row count     |  Sheet1 |
         """
-        self.sheet = self.wb.get_sheet_by_name(sheetname)
+        #self.sheet = self.wb.get_sheet_by_name(sheetname)
+        self.sheet = self.wb[sheetname]
         return self.sheet.max_row
 
     def read_cell_data_by_coordinates(self,sheetname, row_value, column_value):
@@ -82,7 +85,8 @@ class  OpenPyxlLibrary:
         | Read Cell Data By Coordinates     |  SheetName | Row Number |  Column Number  |
         | Read Cell Data By Coordinates     |  Sheet1 |  1  |  1  |
         """
-        self.sheet = self.wb.get_sheet_by_name(sheetname)
+        #self.sheet = self.wb.get_sheet_by_name(sheetname)
+        self.sheet = self.wb[sheetname]
         self.row = int(row_value)
         self.column = int(column_value)
         varcellValue =  self.sheet.cell(row=self.row, column=self.column).value
@@ -96,7 +100,8 @@ class  OpenPyxlLibrary:
         | Write Data By Coordinates    |  SheetName  | Row Number | Column Number |  Data  |
         | Write Data By Coordinates    | Sheet1 | 1 | 1 |  TestData  |
         """
-        self.sheet = self.wb.get_sheet_by_name(sheetname)
+        #self.sheet = self.wb.get_sheet_by_name(sheetname)
+        self.sheet = self.wb[sheetname]
         self.row = int(row_value)
         self.column = int(column_value)
         self.varValue = varValue
